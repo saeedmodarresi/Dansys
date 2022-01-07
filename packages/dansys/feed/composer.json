@@ -1,0 +1,23 @@
+{
+    "name": "dansys/feed",
+    "description": "DAnSys Feed is a library for get crypto currencies data",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "s.modarresi",
+            "email": "saeed.modarresi.dev@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "laravel/framework": ">=6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dansys\\Feed\\" : "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    }
+}

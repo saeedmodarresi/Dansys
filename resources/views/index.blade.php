@@ -61,21 +61,32 @@
         <thead>
         <tr>
             <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
+            <th>Percent</th>
+            @foreach ($exchanges as $exchange)
+                <th>{{ $exchange['name'] }}</th>
+            @endforeach
         </tr>
+        </thead>
+        <tbody>
+            @if($data)
+                @foreach($data as $datum)
+                    <tr>
+                        <td>{{$datum['name']}}</td>
+                        <td>{{$datum['ave']}}</td>
+                        @foreach($datum['exchanges'] as $item)
+                            <td>{{$item}}</td>
+                        @endforeach
+                    </tr>
+                @endforeach
+            @endif
+        </tbody>
     </table>
 
 </section>
 
 <script src="{{ url('/js/growl-notification.min.js') }}"></script>
 <script>
-
-
-
+    var dt;
 
     $(document).ready(function () {
 
@@ -85,7 +96,7 @@
             }
         });
 
-        $('#result').DataTable();
+        dt = $('#result').DataTable();
 
 
         $(document).on('click', '.exchange', function (e) {
